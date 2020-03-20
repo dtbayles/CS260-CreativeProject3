@@ -24,7 +24,8 @@
                 </div>
               </div>
 
-            <button class="btn btn-info"><a @click="addToTeam(player)">Add to team</a></button>
+                <button @click="addToTeam(player)" class="btn btn-info mt-5"><a>Add to Team</a></button>
+
           </div>
         </div>
       </div>
@@ -37,12 +38,31 @@
 export default {
   name: "PlayerDisplay",
   props: {
-    players: Array
+    players: Array,
   },
   methods: {
     addToTeam(player) {
-      this.$root.$data.myTeam.push(player);
+      if (this.$root.$data.myTeam.includes(player)) {
+        return;
+      }
+      else {
+        this.$root.$data.myTeam.push(player);
+        this.$root.$data.players.pop;
+      }
     },
+  computed: {
+    button() {
+      return 'test';
+      /*
+      if (this.$root.$data.myTeam.includes(this.player)) {
+        return "something";
+      }
+      else {
+        return "Added";
+      }
+      */
+    }
+  }
   }
 };
 </script>
@@ -55,6 +75,10 @@ export default {
 }
 .card {
   width: 12rem;
+  height: 387px;
+}
+.card-img-top {
+  max-height: 138px;
 }
 .card:first-child {
   margin-top: 20px;
@@ -67,7 +91,9 @@ export default {
 .card-body .row .col{
   padding: 0 0 1em 0.9em;
 }
-
+.btn {
+  vertical-align: bottom;
+}
 a {
   color: black;
 }

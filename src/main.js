@@ -6,7 +6,10 @@ import playerStats from "./test.js";
 let data = {
 	players: playerStats,
 	myTeam: [],
-}
+	starters: [],
+	bench: [],
+	teamName: 'Design Your Team',
+	}
 
 Vue.config.productionTip = false;
 
