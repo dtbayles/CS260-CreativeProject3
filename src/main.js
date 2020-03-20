@@ -1,10 +1,10 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
-import players from "./2019-20NBARoster.js";
+import playerStats from "./test.js";
 
 let data = {
-	players: players,
+	players: playerStats,
 	myTeam: [],
 }
 
